@@ -10,7 +10,22 @@ class Customer {
     }
 }
 
-class Reservation {}
+class Reservation {
+    constructor(id, customer, date = null, guests){
+        this.id = id;
+        this.customer = customer;
+        this.date = date || new Date(date);
+        this.guests = guests;
+    }
+
+    get info () {
+        return `Fecha de la reserva: ${this.date.toLocaleString()}, Cliente: ${this.customer.info}, Comensales: ${this.guests}`
+    }
+    
+    static validateReservation(date, guests){
+        const reservationDate = new Date(date);
+    }
+}
 
 class Restaurant {
     constructor(name) {
