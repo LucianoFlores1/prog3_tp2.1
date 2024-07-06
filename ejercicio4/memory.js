@@ -22,6 +22,19 @@ class Card {
         return cardElement;
     }
 
+    toggleFlip(){
+        this.isFlipped = !this.isFlipped;
+        if(this.isFlipped){
+            this.#flip();
+        } else{
+            this.#unflip();
+        }
+    }
+
+    matches(otherCard){
+        return this.name === otherCard.name;
+    }
+
     #flip() {
         const cardElement = this.element.querySelector(".card");
         cardElement.classList.add("flipped");
